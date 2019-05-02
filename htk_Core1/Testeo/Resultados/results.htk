@@ -1,0 +1,11 @@
+#!MLF!#
+"Testeo/Parametros/ba_S14_T1_Q_voc_AB1414.rec"
+0 1100000 silence -1127.720947
+1100000 4000000 ba -3124.834473
+4000000 4500000 silence -559.656189
+.
+"Testeo/Parametros/be_S14_T1_Q_voc_AB1414.rec"
+0 1000000 silence -1059.704712
+1000000 4500000 be -3854.623047
+4500000 4900000 silence -440.488770
+.

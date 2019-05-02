@@ -1,0 +1,39 @@
+WARNING: no script file global.ded
+WARNING: no script file Diccionario/pronwlist.htk.ded
+Missing Words
+-------------
+silence
+
+Dictionary Usage Statistics
+---------------------------
+  Dictionary    TotalWords WordsUsed  TotalProns PronsUsed
+pronwlist.ht        80         80         80         80
+    dict.htk        80         80         80         80
+
+81 words required, 1 missing
+
+New Phone Usage Counts
+---------------------
+  1. b     :     5
+  2. a     :    16
+  3. e     :    16
+  4. i     :    16
+  5. o     :    16
+  6. u     :    16
+  7. ch    :     5
+  8. d     :     5
+  9. f     :     5
+ 10. g     :     5
+ 11. k     :     5
+ 12. l     :     5
+ 13. m     :     5
+ 14. n     :     5
+ 15. p     :     5
+ 16. rr    :     5
+ 17. s     :     5
+ 18. t     :     5
+ 19. x     :     5
+ 20. y     :     5
+ 21. z     :     5
+
+Dictionary Diccionario/dict.htk created

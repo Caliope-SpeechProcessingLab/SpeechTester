@@ -1,0 +1,19 @@
+WARNING: no script file global.ded
+WARNING: no script file Diccionario/pronwlist.htk.ded
+
+Dictionary Usage Statistics
+---------------------------
+  Dictionary    TotalWords WordsUsed  TotalProns PronsUsed
+pronwlist.ht         3          3          3          3
+    dict.htk         3          3          3          3
+
+3 words required, 0 missing
+
+New Phone Usage Counts
+---------------------
+  1. b     :     2
+  2. a     :     1
+  3. e     :     1
+  4. silence :     1
+
+Dictionary Diccionario/dict.htk created

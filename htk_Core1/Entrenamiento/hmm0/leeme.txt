@@ -1,0 +1,3 @@
+Archivos hechos manualmente:
+hmmdefs: mete todos los hmm
+macros: cabecera de topologia hmm
