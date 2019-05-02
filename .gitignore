@@ -1,7 +1,15 @@
 
 htk_Core*/
 
-.D*
+
 *.zip
 *.tar
 *.rar
+
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
