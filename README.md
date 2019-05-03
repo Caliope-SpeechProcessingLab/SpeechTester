@@ -74,20 +74,20 @@ Speech tester can help you automatize the process of running a large number of s
           000247854 000418718 a	
           000418718 000509437 silence
 
-          For testing: 
+          For testing:
           000000000 000088911 silence
           000088911 000418718 ba	
           000418718 000509437 silence
 
-       Note: 
-       Verify that the names of .lab files are the same as the .wav files (in htk/Entrenamiento/parametros/ and In htk/Testeo/parametros/)
+     Note: 
+     Verify that the names of .lab files are the same as the .wav files (in htk/Entrenamiento/parametros/ and In htk/Testeo/parametros/)
 
-       If you want to know more about how to create the labels, we recommend you to read the HTK manual chapter 6. 
+     If you want to know more about how to create the labels, we recommend you to read the HTK manual chapter 6. 
 
-      e. Tracking of errors 
-        In order to be able to track errors through the terminal, the variable “N_Cores” in the bash script driver_htk.sh must be set to 1, which centralize all simultions in one processing unit. Therefore, every instruction of the program is executed in a sequential manner instead of asynchronous. For the same purpose, the UPPER-CASE portion of the python code line in the main for loop, must be remove:
+     e. Tracking of errors 
+      In order to be able to track errors through the terminal, the variable “N_Cores” in the bash script driver_htk.sh must be set to 1, which centralize all simultions in one processing unit. Therefore, every instruction of the program is executed in a sequential manner instead of asynchronous. For the same purpose, the UPPER-CASE portion of the python code line in the main for loop, must be remove:
 
-    python3 htk_Core$icore/htk_cross_val.py -c $icore -f ${folder_divided}$icore_folder -i $folder_in -o $folder_out -l ${labList[@]} -w ${wordList[@]} -d ${dicItems[@]} > HTK_CORE$ICORE/LOGS/FOLDER_CORE$ICORE.LOG &
+    python3 htk_Core$icore/htk_cross_val.py -c $icore -f ${folder_divided}$icore_folder -i $folder_in -o $folder_out -l ${labList[@]} -w   ${wordList[@]} -d ${dicItems[@]} > HTK_CORE$ICORE/LOGS/FOLDER_CORE$ICORE.LOG &
 
 
 
