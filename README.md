@@ -5,7 +5,7 @@ Speech Tester is a set of Python scripts conceived as an extension to HTK Automa
 Speech tester can help you automatize the process of running a large number of simulations (up to various thousands, it depends on your processing capacity). Before you can use speech tester you will need some tool to transform the original stimuli. This could be done, among others, with Praat or Matlab. Next, it will be necessary to adapt Speech Tester to your experiment.  
 
 
-#- Using Speech Tester
+# Using Speech Tester
 
   Pre-requisites to running Speech Tester:
    - Operative system: UNIX-type
@@ -28,11 +28,11 @@ Speech tester can help you automatize the process of running a large number of s
   5.	Run multiple simulations.
   
   
-  4.1.	Download software
+  ## 4.1.	Download software
 
      “ git clone https://github.com/Caliope-SpeechProcessingLab/SpeechTester.git “
 
-  4.2.	Checking software pre-requisites:
+  ## 4.2.	Checking software pre-requisites:
 
       a.	Run the bash file utils/Demo/driver_htk.sh:
 
@@ -42,7 +42,7 @@ Speech tester can help you automatize the process of running a large number of s
 
 
 
-   4.3.	Setting-up one simulation
+   ## 4.3.	Setting-up one simulation
 
      a.	Create the folder structure for the audio files
       These must be placed in the folder “audios”. Inside this folder you must create a folder for you experiment (for example   “my_experiment”). Inside this last folder you will have to place one folder per manipulated database. At this point we need just one of these folder. The full path to your database will be something like: audios/my_experiment /simulation1/. 
@@ -106,7 +106,7 @@ python3 htk_Core$icore/htk_cross_val.py -c $icore -f ${folder_divided}$icore_fol
 
 
 
-   4.4.	Run one simulation
+   ## 4.4.	Run one simulation
 
      -	Execute driver_htk.sh through a terminal:
 
@@ -116,7 +116,7 @@ python3 htk_Core$icore/htk_cross_val.py -c $icore -f ${folder_divided}$icore_fol
 
 
 
-   4.5.	Run multiple simulations
+   ## 4.5.	Run multiple simulations
 
       1.	If the above steps doesn´t show any error, you can proceed to execute all your simulations. Place the rest of your simulations in different folders inside audios/experiment_name. As a result, in that location there will be a set of folders, each one having an audio transformed version of your corpus.
 
