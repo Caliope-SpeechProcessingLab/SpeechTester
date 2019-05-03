@@ -67,7 +67,7 @@ Speech tester can help you automatize the process of running a large number of s
    -	At the word (syllable) level. These files (one per audio) should be saved in the htk/Testeo/Parametros/
 
         Below you can see one example of each for the syllable /ba/: 
-
+        ```
           For training: 
           000000000 000088911 silence
           000088911 000247854 b	
@@ -78,6 +78,7 @@ Speech tester can help you automatize the process of running a large number of s
           000000000 000088911 silence
           000088911 000418718 ba	
           000418718 000509437 silence
+         ```
 
      Note: 
      Verify that the names of .lab files are the same as the .wav files (in htk/Entrenamiento/parametros/ and In htk/Testeo/parametros/)
