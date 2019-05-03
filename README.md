@@ -28,13 +28,13 @@ Speech tester can help you automatize the process of running a large number of s
   5.	Run multiple simulations.
   
   
-  ## 4.1.	Download software
+  ## 1.	Download software
 
      “ git clone https://github.com/Caliope-SpeechProcessingLab/SpeechTester.git “
 
-  ## 4.2.	Checking software pre-requisites:
+  ## 2.	Checking software pre-requisites:
 
-   a.	Run the bash file utils/Demo/driver_htk.sh:
+   Run the bash file utils/Demo/driver_htk.sh:
 
         “bash utils/Demo/speechTester_demo.sh”
 
@@ -42,23 +42,23 @@ Speech tester can help you automatize the process of running a large number of s
 
 
 
-   ## 4.3.	Setting-up one simulation
+   ## 3.	Setting-up one simulation
 
-   #### a. Create the folder structure for the audio files
+   #### a.  Create the folder structure for the audio files
     These must be placed in the folder “audios”. Inside this folder you must create a folder for you experiment (for example   “my_experiment”). Inside this last folder you will have to place one folder per manipulated database. At this point we need just one of these folder. The full path to your database will be something like: audios/my_experiment /simulation1/. 
 
-   b. Set up your lexicon
+   #### b.  Set up your lexicon
       Edit the file driver_htk.sh file to modify these three arrays: dicItems, wordlist, and lablist
 
       -	dicitems: lists the words (syllables in our case) of the dictionary with the corresponding phoneme sequence
       -	wordlist: has again the words in the dictionary 
       -	lablist: has the list of phonemes (monophones in HTK terminology) 
       
-   c. Set up your grammar
+   #### c.  Set up your grammar
      Edit the file htk/Gramatica/gram.htk, according to HTK book section 12.3 and your set of words in your dictionary. In the context of our research, the software have been tested only with the grammar model explained in the introduction section (located in manual_speechTester.pdf). 
       
       
-   d.	Set up your HTK label files
+   #### d.	Set up your HTK label files
 
    HTK will need that each audio file is annotated in two different ways:
 
@@ -85,16 +85,16 @@ Speech tester can help you automatize the process of running a large number of s
 
    If you want to know more about how to create the labels, we recommend you to read the HTK manual chapter 6. 
 
-   e. Tracking of errors 
-    In order to be able to track errors through the terminal, the variable “N_Cores” in the bash script driver_htk.sh must be set to 1, which centralize all simultions in one processing unit. Therefore, every instruction of the program is executed in a sequential manner instead of asynchronous. For the same purpose, the UPPER-CASE portion of the python code line in the main for loop, must be remove:
+  #### e.  Tracking of errors 
+   In order to be able to track errors through the terminal, the variable “N_Cores” in the bash script driver_htk.sh must be set to 1, which centralize all simultions in one processing unit. Therefore, every instruction of the program is executed in a sequential manner instead of asynchronous. For the same purpose, the UPPER-CASE portion of the python code line in the main for loop, must be remove:
 ```
     python3 htk_Core$icore/htk_cross_val.py -c $icore -f ${folder_divided}$icore_folder -i $folder_in -o $folder_out -l ${labList[@]} -w   ${wordList[@]} -d ${dicItems[@]} > HTK_CORE$ICORE/LOGS/FOLDER_CORE$ICORE.LOG &
 ```
 
 
 
-   f.	Create the folder structure for results files (confusion matrices)
-     These will be created in the folder Resultados, but you will need to create the same folder structure that you made for the audios, adding another folder named “Por_simulacion”. For the example above:
+   #### f.	Create the folder structure for results files (confusion matrices)
+   These will be created in the folder Resultados, but you will need to create the same folder structure that you made for the audios, adding another folder named “Por_simulacion”. For the example above:
 
         audios/experiment_name
 
@@ -105,7 +105,7 @@ Speech tester can help you automatize the process of running a large number of s
 
 
 
-   ## 4.4.	Run one simulation
+   ## 4.	Run one simulation
 
    Execute driver_htk.sh through a terminal:
 
@@ -115,7 +115,7 @@ Speech tester can help you automatize the process of running a large number of s
 
 
 
-   ## 4.5.	Run multiple simulations
+   ## 5.	Run multiple simulations
 
    1.	If the above steps doesn´t show any error, you can proceed to execute all your simulations. Place the rest of your simulations in different folders inside audios/experiment_name. As a result, in that location there will be a set of folders, each one having an audio transformed version of your corpus.
 
