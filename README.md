@@ -29,16 +29,18 @@ Speech tester can help you automatize the process of running a large number of s
   
   
   ## 1.	Download software
+  
+  Clone this repo to your local machine using:
 
-     “ git clone https://github.com/Caliope-SpeechProcessingLab/SpeechTester.git “
+     git clone https://github.com/Caliope-SpeechProcessingLab/SpeechTester.git
 
   ## 2.	Checking software pre-requisites:
 
    Run the bash file utils/Demo/speechTester.sh:
 
-        “bash utils/Demo/speechTester_demo.sh”
+        bash utils/Demo/speechTester_demo.sh
 
-  If this instruction doesn´t generate any error, you have all software requisites to develop your own experiment. In contrary, you must          review your installation.
+  If this instruction doesn´t generate any error, you have all software requisites to develop your own experiment. In contrary, you must          review your installation. 
 
 
 
@@ -109,7 +111,7 @@ Speech tester can help you automatize the process of running a large number of s
 
    Execute speechTester.sh through a terminal:
 
-        “bash speechTester.sh”
+        bash speechTester.sh
 
 
 
