@@ -34,7 +34,7 @@ Speech tester can help you automatize the process of running a large number of s
 
   ## 2.	Checking software pre-requisites:
 
-   Run the bash file utils/Demo/driver_htk.sh:
+   Run the bash file utils/Demo/speechTester.sh:
 
         “bash utils/Demo/speechTester_demo.sh”
 
@@ -48,7 +48,7 @@ Speech tester can help you automatize the process of running a large number of s
     These must be placed in the folder “audios”. Inside this folder you must create a folder for you experiment (for example   “my_experiment”). Inside this last folder you will have to place one folder per manipulated database. At this point we need just one of these folder. The full path to your database will be something like: audios/my_experiment /simulation1/. 
 
    #### b.  Set up your lexicon
-      Edit the file driver_htk.sh file to modify these three arrays: dicItems, wordlist, and lablist
+      Edit the file speechTester.sh file to modify these three arrays: dicItems, wordlist, and lablist
 
       -	dicitems: lists the words (syllables in our case) of the dictionary with the corresponding phoneme sequence
       -	wordlist: has again the words in the dictionary 
@@ -86,7 +86,7 @@ Speech tester can help you automatize the process of running a large number of s
    If you want to know more about how to create the labels, we recommend you to read the HTK manual chapter 6. 
 
   #### e.  Tracking of errors 
-   In order to be able to track errors through the terminal, the variable “N_Cores” in the bash script driver_htk.sh must be set to 1, which centralize all simultions in one processing unit. Therefore, every instruction of the program is executed in a sequential manner instead of asynchronous. For the same purpose, the UPPER-CASE portion of the python code line in the main for loop, must be remove:
+   In order to be able to track errors through the terminal, the variable “N_Cores” in the bash script speechTester.sh must be set to 1, which centralize all simultions in one processing unit. Therefore, every instruction of the program is executed in a sequential manner instead of asynchronous. For the same purpose, the UPPER-CASE portion of the python code line in the main for loop, must be remove:
 ```
     python3 htk_Core$icore/htk_cross_val.py -c $icore -f ${folder_divided}$icore_folder -i $folder_in -o $folder_out -l ${labList[@]} -w   ${wordList[@]} -d ${dicItems[@]} > HTK_CORE$ICORE/LOGS/FOLDER_CORE$ICORE.LOG &
 ```
@@ -107,7 +107,7 @@ Speech tester can help you automatize the process of running a large number of s
 
    ## 4.	Run one simulation
 
-   Execute driver_htk.sh through a terminal:
+   Execute speechTester.sh through a terminal:
 
         “bash speechTester.sh”
 
@@ -126,7 +126,7 @@ Speech tester can help you automatize the process of running a large number of s
     python3 htk_Core$icore/htk_cross_val.py -c $icore -f ${folder_divided}$icore_folder -i $folder_in -o $folder_out -l ${labList[@]} -w ${wordList[@]} -d ${dicItems[@]} > HTK_CORE$ICORE/LOGS/FOLDER_CORE$ICORE.LOG &
 
 
-   3.	Execute bash file driver_htk.sh:
+   3.	Execute bash file speechTester.sh:
 
           “bash speechTester.sh”
 
