@@ -90,7 +90,8 @@ Speech tester can help you automatize the process of running a large number of s
   #### e.  Tracking of errors 
    In order to be able to track errors through the terminal, the variable “N_Cores” in the bash script speechTester.sh must be set to 1, which centralize all simultions in one processing unit. Therefore, every instruction of the program is executed in a sequential manner instead of asynchronous. For the same purpose, the UPPER-CASE portion of the python code line in the main for loop, must be remove:
 ```
-    python3 htk_Core$icore/htk_cross_val.py -c $icore -f ${folder_divided}$icore_folder -i $folder_in -o $folder_out -l ${labList[@]} -w
+    python3 htk_Core$icore/htk_cross_val.py -c $icore -f ${folder_divided}$icore_folder 
+    -i $folder_in -o $folder_out -l ${labList[@]} -w
     ${wordList[@]} -d ${dicItems[@]} > HTK_CORE$ICORE/LOGS/FOLDER_CORE$ICORE.LOG &
 ```
 
@@ -126,7 +127,8 @@ Speech tester can help you automatize the process of running a large number of s
    2.	In the script speechTester.sh, set the variable “N_Cores” to the number of cores (processing units) you want to run your experiment (it depends on your device). And write the python code line in its previous version. That means add the UPPERCASE portion of code to the python line below.
 
 
-    python3 htk_Core$icore/htk_cross_val.py -c $icore -f ${folder_divided}$icore_folder -i $folder_in -o $folder_out -l ${labList[@]} -w
+    python3 htk_Core$icore/htk_cross_val.py -c $icore -f ${folder_divided}$icore_folder 
+    -i $folder_in -o $folder_out -l ${labList[@]} -w
     ${wordList[@]} -d ${dicItems[@]} > HTK_CORE$ICORE/LOGS/FOLDER_CORE$ICORE.LOG &
 
 
