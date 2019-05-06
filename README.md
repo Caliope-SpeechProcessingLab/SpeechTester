@@ -120,7 +120,7 @@ Speech tester can help you automatize the process of running a large number of s
    1.	If the above steps doesn´t show any error, you can proceed to execute all your simulations. Place the rest of your simulations in different folders inside audios/experiment_name. As a result, in that location there will be a set of folders, each one having an audio transformed version of your corpus.
 
 
-   2.	In the script driver_htk.sh, set the variable “N_Cores” to the number of cores (processing units) you want to run your experiment (it depends on your device). And write the python code line in its previous version. That means add the UPPERCASE portion of code to the python line below.
+   2.	In the script speechTester.sh, set the variable “N_Cores” to the number of cores (processing units) you want to run your experiment (it depends on your device). And write the python code line in its previous version. That means add the UPPERCASE portion of code to the python line below.
 
 
     python3 htk_Core$icore/htk_cross_val.py -c $icore -f ${folder_divided}$icore_folder -i $folder_in -o $folder_out -l ${labList[@]} -w ${wordList[@]} -d ${dicItems[@]} > HTK_CORE$ICORE/LOGS/FOLDER_CORE$ICORE.LOG &
