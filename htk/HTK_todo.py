@@ -1,6 +1,28 @@
 # coding=utf-8
 
 
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DESCRIPTION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# 
+# This script execute some htk processes in order to carry out recognition experiment according to the article.... 
+# For an easier calling from htk_cross_val the procedures of this script are in a function format: resto_procesos()
+# Main functions:
+#	- Extract information from config_User(): kind of parameter, and vector size.
+#	- Acomplish the grammar files.
+#	- Make the dictionary.
+#	- Generate pre-train files and the training stage itself.
+#	- Carry out the recognition stage.
+
+# Note: this script doesn´t have to be manipulated by the user.
+
+# Is called by: htk_cross_val.py
+
+#------------------------------------------------------------------------------------------------------------------
+# Authors:
+#	- Main programmer: Salvador Florido Llorens
+#	- Main Supervisor: Ignacio Moreno Torres
+#	- Second Supervisor: Enrique Nava Baro
+
+
 # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% IMPORT PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 import sys
 sys.path.insert(0, 'htk/Modulos_python')
@@ -23,16 +45,9 @@ import HTK_recognition
 
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EXAMPLE OF USE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-# labList=['b','a','e','silence']
-
-# wordList = ['ba','be']
-
-# dicItems=['ba','b','a','be','b','e']
-
 # HTK_todo.resto_procesos(labList, wordList, dicItems)
 
-#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FUNCTION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% MAIN FUNCTIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 def resto_procesos(labList,wordList,dicItems):
@@ -56,8 +71,7 @@ def resto_procesos(labList,wordList,dicItems):
 	HTK_dict.fillDic (labList,dicItems,wordList,dirPrWList,dirWlist,dirHMMList)
 	HTK_dict.dict()
 
-	#------------------------------------------------------------------------------------------------------------------------------------
-
+	
 	#------------------------------------------------------------------------------------------------------------------------------------
 
 	#ENTRENAMIENTO:
@@ -95,8 +109,7 @@ def resto_procesos(labList,wordList,dicItems):
 	#----------------------------------------------------------------------------------------------------------------------------------
 	#RECONOCIMIENTO:
 	HTK_recognition.recognize()
-	#HTK_recognition.results()
-
+	
 
 
 

@@ -1,4 +1,17 @@
 
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DESCRIPTION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# 
+# This script generate as much txt files as cores are required. Within each .txt file a subset of the entire folder list
+# is reported.
+# Main functions:
+# 	- Divide in the list of folder names in different sub-lists, which are stored in different .txt files
+#	- Those sub-lists are then used by speechTester.sh and htk_cross_val.py
+#
+# Note: this script doesn´t have to be manipulated by the user.
+# 
+# Is called by: speech_Tester.sh
+
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% IMPORT PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 import sys
 from datetime import datetime
 sys.path.insert(0, 'Modulos_python')

@@ -1,5 +1,33 @@
 
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DESCRIPTION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# 
+# This script is intended to act as a module with different functions:
+# 	- Create wordpron.htk file (word-pronunciation).
+# 	- Create wordlist.htk file.
+# 	- Create hmmList.htk file. (list of phones, or hmm models)
+
+
+# Note: information about the function of these files in the htk book.
+
+#------------------------------------------------------------------------------------------------------------------
+# Authors:
+#	- Main programmer: Salvador Florido Llorens
+#	- Main Supervisor: Ignacio Moreno Torres
+#	- Second Supervisor: Enrique Nava Baro
+
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EXAMPLE OF USE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+# sys.path.insert(0, 'htk/Modulos_python')
+# import HTK_dict.py
+#
+# fillDic(labList,dicItems,wordlist,  dirPrWList,dirWlist,dirHMMList)
+
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% IMPORT PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 import subprocess
+
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% MAIN FUNCTIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 def fillDic (labList,dicItems,wordlist,  dirPrWList,dirWlist,dirHMMList):
 	strTemp1=""

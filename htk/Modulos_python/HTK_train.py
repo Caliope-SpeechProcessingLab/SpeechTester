@@ -1,6 +1,35 @@
 
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DESCRIPTION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# 
+# This script is intended to act as a module with different functions:
+#   - Carry out embebeded train by means of the htk-procedure: HERest.
+#   - Carry out training initialization by means of the htk-procedure: HCompv.
+
+
+# Note: information about training with htk in the htk book.
+
+#------------------------------------------------------------------------------------------------------------------
+# Authors:
+#   - Main programmer: Salvador Florido Llorens
+#   - Main Supervisor: Ignacio Moreno Torres
+#   - Second Supervisor: Enrique Nava Baro
+
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EXAMPLE OF USE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+# sys.path.insert(0, 'htk/Modulos_python')
+# import HTK_train.py
+#
+# init_Train (labList)
+
+
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% IMPORT PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 import os
 import subprocess
+
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% MAIN FUNCTIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 def hmmmList(labList,dirHMMList):
 	strHMMList=""
 	for lab in labList:
@@ -78,14 +107,5 @@ def embeded_Train():
 	print ('Tercera re-estimación')
 
 	return;
-
-def mono2tri ():
-	cmd ='HLEd ‐n Entrenamiento/triphones.htk ‐l \'*\' ‐i Entrenamiento/tr_tri.mlf Entrenamiento/mktri.led Entrenamiento/tr.mlf'
-	failure = subprocess.call(cmd, shell=True)
-	print ('Monophones to triphones Done')
-
-	#Cloning models
-	cmd ='HHEd -B -H Entrenamiento/hmm0/macros.htk -H Entrenamiento/hmm0/hmmdefs -M hmm1 mktri.hed hmmList.htk'
-
 
 

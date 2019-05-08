@@ -1,4 +1,31 @@
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DESCRIPTION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# 
+# This script is intended to act as a module with different functions:
+#   - Create tr.mlf file.
+#   - Create ts.mlf file.
+
+# Note: information about these file in the htk book.
+
+#------------------------------------------------------------------------------------------------------------------
+# Authors:
+#   - Main programmer: Salvador Florido Llorens
+#   - Main Supervisor: Ignacio Moreno Torres
+#   - Second Supervisor: Enrique Nava Baro
+
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EXAMPLE OF USE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+# sys.path.insert(0, 'htk/Modulos_python')
+# import HTK_mlf.py
+#
+# mlf(dirLabtr,dirMLFTrain,dirLabts,dirMLFTest)
+
+
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% IMPORT PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 import os
+
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% MAIN FUNCTIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 def mlf(dirLabtr,dirMLFTrain,dirLabts,dirMLFTest):
 

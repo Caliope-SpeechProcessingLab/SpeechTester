@@ -1,8 +1,20 @@
+
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DESCRIPTION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+# This script removes all files to avoid errors.
+
+
+# Authors:
+#	- Main programmer: Salvador Florido Llorens
+#	- Main Supervisor: Ignacio Moreno Torres
+#	- Second Supervisor: Enrique Nava Baro
+
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% IMPORT PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 import os
 from path import Path
 import sys
 
-
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% MAIN PROCEDURE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 places=['Diccionario/dict.htk','Diccionario/dlog.htk','Diccionario/monophones.htk','Gramatica/wdnet.htk',
@@ -28,34 +40,3 @@ d=Path('Testeo/Parametros/')
 files=d.walkfiles('*.mfc')
 for file in files:
 	file.remove()
-
-
-
-
-labList = ['ba', 'be' , 'bi', 'bo','bu','cha','che','chi','cho','chu','da',
-'de','di','do','du','fa','fe','fi','fo','fu','ga','ge','gi','go','gu','ka',
-'ke','ki','ko','ku','la','le','li','lo','lu','ma','me','mi','mo','mu','na',
-'ne','ni','no','nu','pa','pe','pi','po','pu','rra','rre','rri','rro','rru',
-'sa','se','si','so','su','ta','te','ti','to','tu','xa','xe','xi','xo','xu',
-'ya','ye','yi','yo','yu','za','ze','zi','zo','zu','silence']
-
-
-for lab in labList:
-	try:
-		dirfilename="Entrenamiento/hmm0/"+lab+".htk"
-		os.remove(dirfilename)
-	except:
-		pass
-
-
-
-    
-    	
-
-		
-
-
-     
-
-
-

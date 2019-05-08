@@ -1,5 +1,34 @@
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DESCRIPTION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# 
+# This script is intended to act as a module with different functions:
+#   - Execute HVite htk-procedure to generate .rec files (result files).
+#   - Execute HResult htk-procedure to extract results.
+
+# Note: information about these file in the htk book.
+
+#------------------------------------------------------------------------------------------------------------------
+# Authors:
+#   - Main programmer: Salvador Florido Llorens
+#   - Main Supervisor: Ignacio Moreno Torres
+#   - Second Supervisor: Enrique Nava Baro
+
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EXAMPLE OF USE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+# sys.path.insert(0, 'htk/Modulos_python')
+# import HTK_recognition.py
+#
+# recognize()
+
+
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% IMPORT PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
 import subprocess
 import numpy as np
+
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% MAIN FUNCTIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 def recognize():
 	cmd = 'HVite -T 1 -S Testeo/test.scp -H Entrenamiento/hmm3/hmmdefs.htk -i Testeo/Resultados/results.htk -w Gramatica/wdnet.htk Diccionario/dict.htk Entrenamiento/hmmList.htk'
@@ -13,32 +42,3 @@ def results(dir_dic,dir_ts,dir_filename,dir_printedResult):
 	failure = subprocess.call(cmd, shell=True)
 	print ('Evaluación hecha')
 	return;
-
-def extract_Result(dir_Result):
-
-	result_data=open(dir_Result,'r')
-	rData=result_data.readlines()
-	target=""
-	result=""
-	i=0
-	aciertos=np.empty([], dtype=np.uint8)
-	for line in rData:
-		if line.startswith("\"Testeo/"):
-			atarget=line.find("ros/")
-			btarget=line.find("_S")
-			atarget=atarget+4
-			target= line[atarget:btarget]
-			target=target.lstrip()
-		else: 
-			if line.find("silence") == -1 and not line.startswith(".") and not line.startswith("#"):
-				ineg=line.find("-")
-				iresult=ineg-3
-				result= line[iresult:iresult+3]
-				result=result.strip()
-				aciertos= np.append(aciertos, target == result)
-	aciertos=aciertos[1:]
-
-	accuracy=(sum(aciertos)/len(aciertos))*100
-			
-			
-	return aciertos,accuracy;
