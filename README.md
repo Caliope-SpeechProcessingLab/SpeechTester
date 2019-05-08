@@ -49,18 +49,31 @@ Speech tester can help you automatize the process of running a large number of s
    #### a.  Create the folder structure for the audio files
    These must be placed in the folder ```audios```, which is placed in the main folder ```speechTester```. Inside this folder you must create a folder for you experiment (for example   “my_experiment”). Inside this last folder you will have to place one folder per manipulated database. At this point we need just one of these folder. The full path to your database will be something like: ```audios/my_experiment/simulation1/```. 
 
-   #### b.  Set up your lexicon
-   Edit the file ```speechTester.sh``` file to modify these three arrays: dicItems, wordlist, and lablist
+   #### b.  Set up your audio paths
+   Edit the file  ```speechTester.sh``` to modify these two string variables: folder_in, folder_out
+   
+      - folder_in: path where set of simulated corpus (audios) must be placed.
+      - folder_out: path where results of simulations are placed.
+      
+   At first, this variables are:
+        ```
+        folder_in=../audios/my_experiment/
+        folder_out=../Resultados/my_experiment/Por_simulacion/
+        ```
+   Then, to modify these variable for your case, you must replace the name ```my_experiment``` by the real name of your experiment folder created in setp 3.a.
+      
+   #### c.  Set up your lexicon
+   Edit the file ```speechTester.sh``` to modify these three arrays: dicItems, wordlist, and lablist
 
       -	dicitems: lists the words (syllables in our case) of the dictionary with the corresponding phoneme sequence
       -	wordlist: has again the words in the dictionary 
       -	lablist: has the list of phonemes (monophones in HTK terminology) 
       
-   #### c.  Set up your grammar
+   #### d.  Set up your grammar
    Edit the file ```htk/Gramatica/gram.htk```, according to HTK book section 12.3 and your set of words in your dictionary. In the context of our research, the software has been tested only with the grammar model explained in the introduction section (located in manual_speechTester.pdf). 
       
       
-   #### d.	Set up your HTK label files
+   #### e.	Set up your HTK label files
 
    HTK will need that each audio file is annotated in two different ways:
 
@@ -87,7 +100,7 @@ Speech tester can help you automatize the process of running a large number of s
 
    If you want to know more about how to create the labels, we recommend you to read the HTK manual chapter 6. 
 
-  #### e.  Tracking of errors 
+  #### f.  Tracking of errors 
    In order to be able to track errors through the terminal, the variable ```N_Cores``` in the bash script speechTester.sh must be set to 1, which centralize all simulations in one processing unit. Therefore, every instruction of the program is executed in a sequential manner instead of asynchronous. For the same purpose, the ```UPPER-CASE``` portion of the python code line in the main for loop, must be removed:
 ```
     python3 htk_Core$icore/htk_cross_val.py -c $icore -f ${folder_divided}$icore_folder 
@@ -97,7 +110,7 @@ Speech tester can help you automatize the process of running a large number of s
 
 
 
-   #### f.	Create the folder structure for results files (confusion matrices)
+   #### g.	Create the folder structure for results files (confusion matrices)
    These will be created in the folder Resultados, but you will need to create the same folder structure that you made for the audios, adding another folder named ```Por_simulacion```. For the example above:
 
         audios/experiment_name
