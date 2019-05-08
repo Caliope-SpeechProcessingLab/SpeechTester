@@ -36,7 +36,7 @@ Speech tester can help you automatize the process of running a large number of s
 
   ## 2.	Checking software pre-requisites:
 
-   Run the bash file utils/Demo/speechTester.sh:
+   Run the bash file ```utils/Demo/speechTester.sh```:
 
         bash utils/Demo/speechTester_demo.sh
 
@@ -47,7 +47,7 @@ Speech tester can help you automatize the process of running a large number of s
    ## 3.	Setting-up one simulation
 
    #### a.  Create the folder structure for the audio files
-   These must be placed in the folder ```audios```, which is placed in the main folder ```speechTester```. Inside this folder you must create a folder for you experiment (for example   “my_experiment”). Inside this last folder you will have to place one folder per manipulated database. At this point we need just one of these folder. The full path to your database will be something like: audios/my_experiment /simulation1/. 
+   These must be placed in the folder ```audios```, which is placed in the main folder ```speechTester```. Inside this folder you must create a folder for you experiment (for example   “my_experiment”). Inside this last folder you will have to place one folder per manipulated database. At this point we need just one of these folder. The full path to your database will be something like: ```audios/my_experiment/simulation1/```. 
 
    #### b.  Set up your lexicon
    Edit the file ```speechTester.sh``` file to modify these three arrays: dicItems, wordlist, and lablist
@@ -64,9 +64,9 @@ Speech tester can help you automatize the process of running a large number of s
 
    HTK will need that each audio file is annotated in two different ways:
 
-   -	At the phoneme level. These files (one per audio) should be saved in the htk/Entrenamiento/Parametros/
+   -	At the phoneme level. These files (one per audio) should be saved in the ```htk/Entrenamiento/Parametros/```
 
-   -	At the word (syllable) level. These files (one per audio) should be saved in the htk/Testeo/Parametros/
+   -	At the word (syllable) level. These files (one per audio) should be saved in the ```htk/Testeo/Parametros/```
 
         Below you can see one example of each for the syllable /ba/: 
         ```
@@ -83,12 +83,12 @@ Speech tester can help you automatize the process of running a large number of s
          ```
 
    Note: 
-   Verify that the names of .lab files are the same as the .wav files (in htk/Entrenamiento/parametros/ and In htk/Testeo/parametros/)
+   Verify that the names of .lab files are the same as the .wav files in ```htk/Entrenamiento/parametros/ and In htk/Testeo/parametros/```
 
    If you want to know more about how to create the labels, we recommend you to read the HTK manual chapter 6. 
 
   #### e.  Tracking of errors 
-   In order to be able to track errors through the terminal, the variable “N_Cores” in the bash script speechTester.sh must be set to 1, which centralize all simulations in one processing unit. Therefore, every instruction of the program is executed in a sequential manner instead of asynchronous. For the same purpose, the UPPER-CASE portion of the python code line in the main for loop, must be removed:
+   In order to be able to track errors through the terminal, the variable ```N_Cores``` in the bash script speechTester.sh must be set to 1, which centralize all simulations in one processing unit. Therefore, every instruction of the program is executed in a sequential manner instead of asynchronous. For the same purpose, the ```UPPER-CASE``` portion of the python code line in the main for loop, must be removed:
 ```
     python3 htk_Core$icore/htk_cross_val.py -c $icore -f ${folder_divided}$icore_folder 
     -i $folder_in -o $folder_out -l ${labList[@]} -w
@@ -100,11 +100,11 @@ Speech tester can help you automatize the process of running a large number of s
    #### f.	Create the folder structure for results files (confusion matrices)
    These will be created in the folder Resultados, but you will need to create the same folder structure that you made for the audios, adding another folder named ```Por_simulacion```. For the example above:
 
-        **audios/experiment_name**
+        audios/experiment_name
 
-        this should be the folder name:
+  This should be the folder name:
 
-        **Resultados/experiment_name/Por_simulacion**
+        Resultados/experiment_name/Por_simulacion
 
 
 
