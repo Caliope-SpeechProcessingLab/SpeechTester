@@ -151,6 +151,7 @@ Speech tester can help you automatize the process of running a large number of s
 
 
    3.	Execute bash file speechTester.sh:
+   
      ```
      bash speechTester.sh
      ```
