@@ -151,8 +151,10 @@ Speech tester can help you automatize the process of running a large number of s
 
 
    3.	Execute bash file speechTester.sh:
-     
-          bash speechTester.sh
+   
+    
+    bash speechTester.sh
+    
      
 
 If everything goes well your ```Resultados``` folder will have two files per simulation. One will contain the confusion matrix, the other will list the errors in that simulation.
