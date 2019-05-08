@@ -57,10 +57,10 @@ Speech tester can help you automatize the process of running a large number of s
       
    At first, this variables are:
    
-        ```
+       
         folder_in=../audios/my_experiment/
         folder_out=../Resultados/my_experiment/Por_simulacion/
-        ```
+        
         
    Then, to modify these variable for your case, you must replace the name ```my_experiment``` by the real name of your experiment folder created in setp 3.a.
       
