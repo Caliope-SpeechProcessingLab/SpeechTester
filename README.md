@@ -40,24 +40,24 @@ Speech tester can help you automatize the process of running a large number of s
 
         bash utils/Demo/speechTester_demo.sh
 
-  If this instruction doesn´t generate any error, you have all software requisites to develop your own experiment. In contrary, you must          review your installation. 
+  If this instruction doesn´t generate any error, you have all software requisites to develop your own experiment. In contrary, you must          review your pre-requisites. 
 
 
 
    ## 3.	Setting-up one simulation
 
    #### a.  Create the folder structure for the audio files
-   These must be placed in the folder “audios”. Inside this folder you must create a folder for you experiment (for example   “my_experiment”). Inside this last folder you will have to place one folder per manipulated database. At this point we need just one of these folder. The full path to your database will be something like: audios/my_experiment /simulation1/. 
+   These must be placed in the folder ```audios```, which is placed in the main folder ```speechTester```. Inside this folder you must create a folder for you experiment (for example   “my_experiment”). Inside this last folder you will have to place one folder per manipulated database. At this point we need just one of these folder. The full path to your database will be something like: audios/my_experiment /simulation1/. 
 
    #### b.  Set up your lexicon
-   Edit the file speechTester.sh file to modify these three arrays: dicItems, wordlist, and lablist
+   Edit the file ```speechTester.sh``` file to modify these three arrays: dicItems, wordlist, and lablist
 
       -	dicitems: lists the words (syllables in our case) of the dictionary with the corresponding phoneme sequence
       -	wordlist: has again the words in the dictionary 
       -	lablist: has the list of phonemes (monophones in HTK terminology) 
       
    #### c.  Set up your grammar
-   Edit the file htk/Gramatica/gram.htk, according to HTK book section 12.3 and your set of words in your dictionary. In the context of our research, the software have been tested only with the grammar model explained in the introduction section (located in manual_speechTester.pdf). 
+   Edit the file ```htk/Gramatica/gram.htk```, according to HTK book section 12.3 and your set of words in your dictionary. In the context of our research, the software has been tested only with the grammar model explained in the introduction section (located in manual_speechTester.pdf). 
       
       
    #### d.	Set up your HTK label files
@@ -88,7 +88,7 @@ Speech tester can help you automatize the process of running a large number of s
    If you want to know more about how to create the labels, we recommend you to read the HTK manual chapter 6. 
 
   #### e.  Tracking of errors 
-   In order to be able to track errors through the terminal, the variable “N_Cores” in the bash script speechTester.sh must be set to 1, which centralize all simultions in one processing unit. Therefore, every instruction of the program is executed in a sequential manner instead of asynchronous. For the same purpose, the UPPER-CASE portion of the python code line in the main for loop, must be remove:
+   In order to be able to track errors through the terminal, the variable “N_Cores” in the bash script speechTester.sh must be set to 1, which centralize all simulations in one processing unit. Therefore, every instruction of the program is executed in a sequential manner instead of asynchronous. For the same purpose, the UPPER-CASE portion of the python code line in the main for loop, must be removed:
 ```
     python3 htk_Core$icore/htk_cross_val.py -c $icore -f ${folder_divided}$icore_folder 
     -i $folder_in -o $folder_out -l ${labList[@]} -w
@@ -98,22 +98,25 @@ Speech tester can help you automatize the process of running a large number of s
 
 
    #### f.	Create the folder structure for results files (confusion matrices)
-   These will be created in the folder Resultados, but you will need to create the same folder structure that you made for the audios, adding another folder named “Por_simulacion”. For the example above:
+   These will be created in the folder Resultados, but you will need to create the same folder structure that you made for the audios, adding another folder named ```Por_simulacion```. For the example above:
 
-        audios/experiment_name
+        **audios/experiment_name**
 
         this should be the folder name:
 
-        Resultados/experiment_name/Por_simulacion
+        **Resultados/experiment_name/Por_simulacion**
 
 
 
 
    ## 4.	Run one simulation
 
-   Execute speechTester.sh through a terminal:
+   1. Run speechTester.sh through a terminal:
 
-        bash speechTester.sh
+          bash speechTester.sh
+        
+   2. If the above steps don´t show any error, you can proceed to execute all your simulations
+   3. Go to file ```Resultados/experiment_name/Por_simulacion/simulation_name/simulation_name.htk```, and review your results with the confusion matrix help. In case the results don´t make sense, review all previous steps.
 
 
 
@@ -121,10 +124,10 @@ Speech tester can help you automatize the process of running a large number of s
 
    ## 5.	Run multiple simulations
 
-   1.	If the above steps doesn´t show any error, you can proceed to execute all your simulations. Place the rest of your simulations in different folders inside audios/experiment_name. As a result, in that location there will be a set of folders, each one having an audio transformed version of your corpus.
+   1. Place the audios for all the simulations (one folder per simulation) in the folder inside ```audios/experiment_name```. As a result, in that location there will be a set of folders, each one having an audio transformed version of your corpus.
 
 
-   2.	In the script speechTester.sh, set the variable “N_Cores” to the number of cores (processing units) you want to run your experiment (it depends on your device). And write the python code line in its previous version. That means add the UPPERCASE portion of code to the python line below.
+   2.	In the script speechTester.sh, set the variable ```N_Cores``` to the number of cores (processing units) you want to run your experiment (it depends on your device). Then, restore the UPPERCASE portion of the code that you removed earlier.
 
 
     python3 htk_Core$icore/htk_cross_val.py -c $icore -f ${folder_divided}$icore_folder 
@@ -134,7 +137,7 @@ Speech tester can help you automatize the process of running a large number of s
 
    3.	Execute bash file speechTester.sh:
 
-          “bash speechTester.sh”
+          bash speechTester.sh
 
-
+If everything goes well your ```Resultados``` folder will have two files per simulation. One will contain the confusion matrix, the other will list the errors in that simulation.
 
