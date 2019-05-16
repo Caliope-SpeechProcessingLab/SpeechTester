@@ -24,7 +24,7 @@ N_Cores=1
 
 folder_divided=../distributed_Cores/
 
-python3 htk/divide_folder_list.py -c $N_Cores -o $folder_divided -i $folder_in
+python3 htk/divide_folderList.py -c $N_Cores -o $folder_divided -i $folder_in
 
 
 #MAIN LOOP
@@ -34,7 +34,7 @@ do
 	if [ -d htk_Core$icore ]; then rm -Rf htk_Core$icore; fi
 	cp -fR htk htk_Core$icore
 	icore_folder="folder_Core$icore.txt"
-	python3 htk_Core$icore/htk_cross_val.py -s ${tsujs[@]} -c $icore -f ${folder_divided}$icore_folder -i $folder_in -o $folder_out -l ${labList[@]} -w ${wordList[@]} -d ${dicItems[@]} > htk_Core$icore/logs/folder_Core$icore.log & 
+	python3 htk_Core$icore/HTK_crossVal.py -s ${tsujs[@]} -c $icore -f ${folder_divided}$icore_folder -i $folder_in -o $folder_out -l ${labList[@]} -w ${wordList[@]} -d ${dicItems[@]} > htk_Core$icore/logs/folder_Core$icore.log & 
 
 done
 
