@@ -110,9 +110,15 @@ Speech tester can help you automatize the process of running a large number of s
     ${wordList[@]} -d ${dicItems[@]} > HTK_CORE$ICORE/LOGS/FOLDER_CORE$ICORE.LOG &
 ```
 
+   #### g.  Set up your locutor array
+   
+   This array is located in the file speechTester.sh. The name of the variable is "tsujs" and is composed of all locutor identifiers. A locutor identifier is a portion of the audio filename that identifies a unique locutor of your experiment. This allows to make an structured cross-validation in the testing stage of the recognition experiment. For example, you may have several .wav files with the following names: ba_S01.wav, be_S01.wav, be_S02.wav, or bi_S05.wav. In this case, the locutor identifiers would be "S01", "S02", and "S05". An example of such locutor array for this case would be:
+   
+   
+    tsujs=('S01' 'S02' 'S05')
 
 
-   #### g.	Create the folder structure for results files (confusion matrices)
+   #### h.	Create the folder structure for results files (confusion matrices)
    These will be created in the folder Resultados, but you will need to create the same folder structure that you made for the audios, adding another folder named ```Por_simulacion```. For the example above:
 
         audios/experiment_name
