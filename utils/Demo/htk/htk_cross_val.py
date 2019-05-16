@@ -1,9 +1,29 @@
 # coding=utf-8
 
-# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% VARIABLE DESCRIPTION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DESCRIPTION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-#  dir_SujResult ----> Direccion donde se encuentra el archivo resultados_globales.htk, el cual es un mlf que cotiene 
-#                      los .rec de todos los resultados de todos los sujetos para una simulación.
+# This is the main script of the project. 
+# The main functions of this script are:
+# 	- Placing path variable needed in all python scripts.
+# 	- Spread simulation volume through different processing job units (CPU cores). For each core, the python script
+# 	  htk_val_cross.py is called with a certain amount of simulations to be executed.
+#------------------------------------------------------------------------------------------------------------------
+# Variables:
+# 	Inputs:
+#     * folder_in: path where set of simulated corpus must place.
+#     * folder_out: path where results of simulations are placed.
+#     * labList: array composed of a set of corpus-phones (htk monophones) .
+#     * wordList: array composed of a set of corpus-words.
+#     * dicItems: array composed of a dict-items set: phone1, monophone11, monophone12,..,phone2, monophone21, monphone22
+#     * N_Cores: number of processing jobs or cores that the user desires to use.
+
+# 	Outputs:
+# 	  * There is not output variables, because this script executes procedures. (which are the generation of results)
+#------------------------------------------------------------------------------------------------------------------
+# Authors:
+#	- Main programmer: Salvador Florido Llorens
+#	- Main Supervisor: Ignacio Moreno Torres
+#	- Second Supervisor: Enrique Nava Baro
 
 # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% IMPORT PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -31,17 +51,8 @@ import HTK_todo
 
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EXAMPLE OF USE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-# folder_in = '../audios/audios_voc/Experimento1/'
-
-# folder_out = '../Resultados/audios_voc/Experimento1/Por_simulacion/'
-
-# labList=['b','a','e','silence']
-
-# wordList = ['ba','be']
-
-# dicItems=['ba','b','a','be','b','e']
-
-# python3 htk_cross_val.py -f folder_list -i folder_in -o folder_out -l labList -w wordList -d dicItems
+#python3 htk_Core$icore/htk_cross_val.py -s ${tsujs[@]} -c $icore -f ${folder_divided}$icore_folder -i $folder_in \
+#-o $folder_out -l ${labList[@]} -w ${wordList[@]} -d ${dicItems[@]} > htk_Core$icore/logs/folder_Core$icore.log & 
 
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% AUXILIARY FUNCTIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -60,6 +71,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('-c', '--iCore', help='Number of the core in used', type=int, required = True)
 parser.add_argument('-f', '--filename', help='Filename indicating which simulations of input',type=str, required = True)
 parser.add_argument('-i', '--dir_in', help='Dir where input audios are stored', type=str, required = True)
+parser.add_argument('-s', '--tsujs', help='Array (list) of subject identifiers',nargs='+', type=str, required = True)
 parser.add_argument('-o', '--dir_out', help='Dir where results are stored', type=str, required = True)
 parser.add_argument('-l', '--labList', help='Array (list) of labs',nargs='+', type=str, required = True)
 parser.add_argument('-w', '--wordList', help='Array (list) of words', nargs='+',  type=str, required = True)
@@ -81,14 +93,11 @@ folder_out = args.dir_out
 labList = args.labList
 wordList = args.wordList
 dicItems = args.dicItems
-print(dicItems)
-print(len(dicItems))
+tsujs = args.tsujs
 
 # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% SETUP LOCAL VARIABLES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 startTime = datetime.now()
 
-#Labels:
-#wordList = ['ba','be']
 
 #Dir values:
 dirConfig_User='config_User.txt'
@@ -106,20 +115,12 @@ dir_SujResultglob = 'Testeo/Resultados/resultados_globales.htk'
 
 
 
-tsujs = ["S01", "S02", "S03", "S04", "S05", "S06", "S07", "S08", "S09", "S10", "S11", "S12", "S13", "S14"]
-
-k = 0
-
 # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% MAIN LOOP PROCEDURE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-print('METIDO en HTK')
 for ifolder in folder_list:
 
 	#Generar codetr, codets, en función de la folder
-	#ifolder = "10_15_001001101111111"
-
-
-	k = k + 1
+	
 	cmd = "python3 HTK1_reset.py"
 	failure = subprocess.call(cmd, shell=True)
 
@@ -147,7 +148,6 @@ for ifolder in folder_list:
 	#BUCLE IMAGINARIO POR CADA SUJETO
 	for itsuj in tsujs:
 
-		#itsuj = "S01"
 		dirTrain='Entrenamiento/train.scp'
 		dirTest='Testeo/test.scp'
 		HTK_codeT.train (dirTrain, folder_in, wordList, itsuj, ifolder)
@@ -169,7 +169,7 @@ for ifolder in folder_list:
 		print(" \n")
 
 
-	#Elimna las cabeceras #MLF!#
+	#Elimina las cabeceras #MLF!#
 	fread = open(dir_SujResultglob, 'r')
 	string = ""
 	i = 0

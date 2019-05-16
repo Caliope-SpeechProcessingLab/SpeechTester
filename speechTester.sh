@@ -40,9 +40,13 @@ folder_out=../Resultados/my_experiment/Por_simulacion/
 
 # Example: 
 labList=('b' 'a' 'e' 'silence')
+
 wordList=('ba' 'be')
 
 dicItems=('ba' 'b' 'a' 'be' 'b' 'e')
+
+tsujs=('S01' 'S02' 'S03' 'S04' 'S05' 'S06' 'S07' 'S08' 'S09' 'S10' 'S11' 'S12' 'S13' 'S14')
+
 
 #Debug mode: 
 N_Cores=1
@@ -63,8 +67,8 @@ do
 	if [ -d htk_Core$icore ]; then rm -Rf htk_Core$icore; fi
 	#Create as many HTK folders as Cores:
 	cp -fR htk htk_Core$icore
-	icore_folder="folder_Core$icore.txt"
-	python3 htk_Core$icore/htk_cross_val.py -c $icore -f ${folder_divided}$icore_folder -i $folder_in -o $folder_out -l ${labList[@]} -w ${wordList[@]} -d ${dicItems[@]} > htk_Core$icore/logs/folder_Core$icore.log & 
+	icore_folder='folder_Core$icore.txt'
+	python3 htk_Core$icore/htk_cross_val.py -s ${tsujs[@]} -c $icore -f ${folder_divided}$icore_folder -i $folder_in -o $folder_out -l ${labList[@]} -w ${wordList[@]} -d ${dicItems[@]} > htk_Core$icore/logs/folder_Core$icore.log & 
 
 done
 

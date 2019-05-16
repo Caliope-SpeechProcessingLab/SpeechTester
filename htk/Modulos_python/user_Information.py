@@ -1,3 +1,28 @@
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DESCRIPTION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# 
+# This script is intended to act as a module with different functions:
+#   - Create tr.mlf file.
+#   - Create ts.mlf file.
+
+# Note: information about these file in the htk book.
+
+#------------------------------------------------------------------------------------------------------------------
+# Authors:
+#   - Main programmer: Salvador Florido Llorens
+#   - Main Supervisor: Ignacio Moreno Torres
+#   - Second Supervisor: Enrique Nava Baro
+
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EXAMPLE OF USE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+# sys.path.insert(0, 'htk/Modulos_python')
+# import user_information.py
+#
+# mlf(dirLabtr,dirMLFTrain,dirLabts,dirMLFTest)
+
+
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% IMPORT PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 import sys
 
 def user_Config(dirC_User):

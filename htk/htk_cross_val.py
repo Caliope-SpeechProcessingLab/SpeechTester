@@ -64,8 +64,9 @@ import HTK_todo
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EXAMPLE OF USE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-# python3 htk_cross_val.py -c $icore -f ${folder_divided}$icore_folder -i $folder_in -o $folder_out -l ${labList[@]} \
-# -w ${wordList[@]} -d ${dicItems[@]}
+# python3 htk_Core$icore/htk_cross_val.py -s ${tsujs[@]} -c $icore -f ${folder_divided}$icore_folder -i $folder_in \
+#-o $folder_out -l ${labList[@]} -w ${wordList[@]} -d ${dicItems[@]} > htk_Core$icore/logs/folder_Core$icore.log & 
+
 
 
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% AUXILIARY FUNCTIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -86,6 +87,7 @@ parser.add_argument('-c', '--iCore', help='Number of the core in used', type=int
 parser.add_argument('-f', '--filename', help='Filename indicating which simulations of input',type=str, required = True)
 parser.add_argument('-i', '--dir_in', help='Dir where input audios are stored', type=str, required = True)
 parser.add_argument('-o', '--dir_out', help='Dir where results are stored', type=str, required = True)
+parser.add_argument('-s', '--tsujs', help='Array (list) of subject identifiers',nargs='+', type=str, required = True)
 parser.add_argument('-l', '--labList', help='Array (list) of labs',nargs='+', type=str, required = True)
 parser.add_argument('-w', '--wordList', help='Array (list) of words', nargs='+',  type=str, required = True)
 parser.add_argument('-d', '--dicItems', help='List of dictionary items',nargs='+', type=str, required = True)
@@ -106,6 +108,7 @@ folder_out = args.dir_out
 labList = args.labList
 wordList = args.wordList
 dicItems = args.dicItems
+tsujs = args.tsujs
 
 
 # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LOCAL VARIABLES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -124,10 +127,6 @@ dirMLFTest='Testeo/ts.mlf'
 
 
 dir_SujResultglob = 'Testeo/Resultados/resultados_globales.htk'
-
-
-
-tsujs = ["S01", "S02", "S03", "S04", "S05", "S06", "S07", "S08", "S09", "S10", "S11", "S12", "S13", "S14"]
 
 
 # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% MAIN LOOP PROCEDURE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
