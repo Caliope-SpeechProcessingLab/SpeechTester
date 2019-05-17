@@ -63,11 +63,19 @@ Speech tester can help you automatize the process of running a large number of s
 
 
    ## 3.	Setting-up one simulation
+   
+   #### a. Your audiofile list
+   Every audio file in each simulation folder must have a certain syntax. Each filename is composed of fields which are separated by "\_" characters. First field must indicate the word recorded. The second one has to show the locutor identifier, which can be any sequence of letters that you prefer. The rest of the audio filename is free-writing. An example could be:
+   
+        ba_S01_mfmgd.wav
+        
+ In that case, your word recorded is "ba", and the "S01" is the locutor identifier. Next fields could add relevant information for you.
+   
 
-   #### a.  Create the folder structure for the audio files
+   #### b.  Create the folder structure for the audio files
    These must be placed in the folder ```audios```, which is placed in the main folder ```speechTester```. Inside this folder you must create a folder for you experiment (for example   “my_experiment”). Inside this last folder you will have to place one folder per manipulated database. At this point we need just one of these folder. The full path to your database will be something like: ```audios/my_experiment/simulation1/```. 
 
-   #### b.  Set up your audio paths
+   #### c.  Set up your audio paths
    Edit the file  ```speechTester.sh``` to modify these two string variables: folder_in, folder_out
    
       - folder_in: path where set of simulated corpus (audios) must be placed.
@@ -82,18 +90,18 @@ Speech tester can help you automatize the process of running a large number of s
         
    Then, to modify these variable for your case, you must replace the name ```my_experiment``` by the real name of your experiment folder created in setp 3.a.
       
-   #### c.  Set up your lexicon
+   #### d.  Set up your lexicon
    Edit the file ```speechTester.sh``` to modify these three arrays: dicItems, wordlist, and lablist
 
       -	dicitems: lists the words (syllables in our case) of the dictionary with the corresponding phoneme sequence
       -	wordlist: has again the words in the dictionary 
       -	lablist: has the list of phonemes (monophones in HTK terminology) 
       
-   #### d.  Set up your grammar
+   #### e.  Set up your grammar
    Edit the file ```htk/Gramatica/gram.htk```, according to HTK book section 12.3 and your set of words in your dictionary. In the context of our research, the software has been tested only with the grammar model explained in the introduction section (located in manual_speechTester.pdf). 
       
       
-   #### e.	Set up your HTK label files
+   #### f.	Set up your HTK label files
 
    HTK will need that each audio file is annotated in two different ways:
 
@@ -120,7 +128,7 @@ Speech tester can help you automatize the process of running a large number of s
 
    If you want to know more about how to create the labels, we recommend you to read the HTK manual chapter 6. 
 
-  #### f.  Tracking of errors 
+  #### g.  Tracking of errors 
    In order to be able to track errors through the terminal, the variable ```N_Cores``` in the bash script speechTester.sh must be set to 1, which centralize all simulations in one processing unit. Therefore, every instruction of the program is executed in a sequential manner instead of asynchronous. For the same purpose, the ```UPPER-CASE``` portion of the python code line in the main for loop, must be removed:
 ```
     python3 htk_Core$icore/htk_cross_val.py -c $icore -f ${folder_divided}$icore_folder 
@@ -128,15 +136,15 @@ Speech tester can help you automatize the process of running a large number of s
     ${wordList[@]} -d ${dicItems[@]} > HTK_CORE$ICORE/LOGS/FOLDER_CORE$ICORE.LOG &
 ```
 
-   #### g.  Set up your locutor array
+   #### h.  Set up your locutor array
    
-   This array is located in the file speechTester.sh. The name of the variable is "tsujs" and is composed of all locutor identifiers. A locutor identifier is a portion of the audio filename that identifies a unique locutor of your experiment. This allows to make an structured cross-validation in the testing stage of the recognition experiment. An audio filename must exposed a certain structured. The filename is comprised of fields which are separated by "\_" characters. First field must indicate the word recorded. The second one has to show the locutor identifier, which can be any sequence of letters that you prefer. The rest of the audio filename is free-writing. For example, you may have several .wav files with the following names: ba_S01.wav, be_S01.wav, be_S02.wav, or bi_S05.wav. In this case, the locutor identifiers would be "S01", "S02", and "S05". An example of such locutor array for this case would be:
+   This array is located in the file speechTester.sh. The name of the variable is "tsujs" and is composed of all locutor identifiers. A locutor identifier is a portion of the audio filename that identifies a unique locutor of your experiment. This allows to make an structured cross-validation in the testing stage of the recognition experiment. An audio filename must exposed a certain structured. For example, you may have several .wav files with the following names: ba_S01.wav, be_S01.wav, be_S02.wav, or bi_S05.wav. In this case, the locutor identifiers would be "S01", "S02", and "S05". An example of such locutor array for this case would be:
    
    
     tsujs=('S01' 'S02' 'S05')
 
 
-   #### h.	Create the folder structure for results files (confusion matrices)
+   #### i.	Create the folder structure for results files (confusion matrices)
    These will be created in the folder Resultados, but you will need to create the same folder structure that you made for the audios, adding another folder named ```Por_simulacion```. For the example above:
 
         audios/experiment_name
@@ -164,6 +172,8 @@ Speech tester can help you automatize the process of running a large number of s
    ## 5.	Run multiple simulations
 
    1. Place the audios for all the simulations (one folder per simulation) in the folder inside ```audios/experiment_name```. As a result, in that location there will be a set of folders, each one having an audio transformed version of your corpus.
+   
+   Note: ```It is important to all audio filenames equal from one folder simulation to another. ```
 
 
    2.	In the script speechTester.sh, set the variable ```N_Cores``` to the number of cores (processing units) you want to run your experiment (it depends on your device). Then, restore the UPPERCASE portion of the code that you removed earlier.
