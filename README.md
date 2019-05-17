@@ -69,7 +69,7 @@ Speech tester can help you automatize the process of running a large number of s
    
         ba_S01_extraFields.wav
         
- In that case, your word recorded is "ba", and the "S01" is the locutor identifier. Next fields could add relevant information for you.
+ In that case, your word recorded is "ba", and the "S01" is the speaker identifier. Next fields could add relevant information for you.
    
 
    #### b.  Create the folder structure for the audio files
@@ -138,7 +138,7 @@ Speech tester can help you automatize the process of running a large number of s
 
    #### h.  Set up your locutor array
    
-   This array is located in the file speechTester.sh. The name of the variable is "tsujs" and is composed of all locutor identifiers. A locutor identifier is a portion of the audio filename that identifies a unique locutor of your experiment. This allows to make an structured cross-validation in the testing stage of the recognition experiment. An audio filename must exposed a certain structured. For example, you may have several .wav files with the following names: ba_S01.wav, be_S01.wav, be_S02.wav, or bi_S05.wav. In this case, the locutor identifiers would be "S01", "S02", and "S05". An example of such locutor array for this case would be:
+   This array is located in the file speechTester.sh. The name of the variable is "tsujs" and is composed of all speaker identifiers. A speaker identifier is a portion of the audio filename that identifies a unique locutor of your experiment. This allows to make an structured cross-validation in the testing stage of the recognition experiment. An audio filename must exposed a certain structured. For example, you may have several .wav files with the following names: ba_S01.wav, be_S01.wav, be_S02.wav, or bi_S05.wav. In this case, the speaker identifiers would be "S01", "S02", and "S05". An example of such speaker array for this case would be:
    
    
     tsujs=('S01' 'S02' 'S05')
