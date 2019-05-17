@@ -67,7 +67,7 @@ Speech tester can help you automatize the process of running a large number of s
    #### a. Your audiofile list
    Every audio file in each simulation folder must have a certain syntax. Each filename is composed of fields which are separated by "\_" characters. First field must indicate the word recorded. The second one has to show the locutor identifier, which can be any sequence of letters that you prefer. The rest of the audio filename is free-writing. An example could be:
    
-        ba_S01_mfmgd.wav
+        ba_S01_extraFields.wav
         
  In that case, your word recorded is "ba", and the "S01" is the locutor identifier. Next fields could add relevant information for you.
    
