@@ -65,7 +65,7 @@ Speech tester can help you automatize the process of running a large number of s
    ## 3.	Setting-up one simulation
    
    #### a. Your audiofile list
-   Every audio file in each simulation folder must have a certain syntax. Each filename is composed of fields which are separated by "\_" characters. First field must indicate the word recorded. The second one has to show the locutor identifier, which can be any sequence of letters that you prefer. The rest of the audio filename is free-writing. An example could be:
+   Every audio file in each simulation folder must have a certain syntax. Each filename is composed of fields which are separated by "\_" characters. First field must indicate the word recorded. The second one has to show the speaker identifier, which can be any sequence of letters that you prefer. The rest of the audio filename is free-writing. An example could be:
    
         ba_S01_extraFields.wav
         
@@ -136,9 +136,9 @@ Speech tester can help you automatize the process of running a large number of s
     ${wordList[@]} -d ${dicItems[@]} > HTK_CORE$ICORE/LOGS/FOLDER_CORE$ICORE.LOG &
 ```
 
-   #### h.  Set up your locutor array
+   #### h.  Set up your speaker array
    
-   This array is located in the file speechTester.sh. The name of the variable is "tsujs" and is composed of all speaker identifiers. A speaker identifier is a portion of the audio filename that identifies a unique locutor of your experiment. This allows to make an structured cross-validation in the testing stage of the recognition experiment. An audio filename must exposed a certain structured. For example, you may have several .wav files with the following names: ba_S01.wav, be_S01.wav, be_S02.wav, or bi_S05.wav. In this case, the speaker identifiers would be "S01", "S02", and "S05". An example of such speaker array for this case would be:
+   This array is located in the file speechTester.sh. The name of the variable is "tsujs" and is composed of all speaker identifiers. A speaker identifier is a portion of the audio filename that identifies a unique speaker of your experiment. This allows to make an structured cross-validation in the testing stage of the recognition experiment. An audio filename must exposed a certain structured. For example, you may have several .wav files with the following names: ba_S01.wav, be_S01.wav, be_S02.wav, or bi_S05.wav. In this case, the speaker identifiers would be "S01", "S02", and "S05". An example of such speaker array for this case would be:
    
    
     tsujs=('S01' 'S02' 'S05')
