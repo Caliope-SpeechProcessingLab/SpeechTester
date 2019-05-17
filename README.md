@@ -1,3 +1,22 @@
+- [SpeechTester](#speechtester)
+- [Using Speech Tester](#using-speech-tester)
+  * [1. Download software](#1-download-software)
+  * [2. Checking software pre-requisites:](#2-checking-software-pre-requisites-)
+  * [3.    Setting-up one simulation](#3----setting-up-one-simulation)
+      - [a.  Create the folder structure for the audio files](#a--create-the-folder-structure-for-the-audio-files)
+      - [b.  Set up your audio paths](#b--set-up-your-audio-paths)
+      - [c.  Set up your lexicon](#c--set-up-your-lexicon)
+      - [d.  Set up your grammar](#d--set-up-your-grammar)
+      - [e.  Set up your HTK label files](#e--set-up-your-htk-label-files)
+      - [f.  Tracking of errors](#f--tracking-of-errors)
+      - [g.  Set up your locutor array](#g--set-up-your-locutor-array)
+      - [h.  Create the folder structure for results files (confusion matrices)](#h--create-the-folder-structure-for-results-files--confusion-matrices-)
+  * [4.    Run one simulation](#4----run-one-simulation)
+  * [5.    Run multiple simulations](#5----run-multiple-simulations)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+
 # SpeechTester
 
 Speech Tester is a set of Python scripts conceived as an extension to HTK Automatic Speech Recognition system (Young et al., 2002). Speech Tester aims to help language researchers and engineers to measure the intelligibility of transformed audio signals. Here the termed “transform” may describe any process that alters a speech signal or its reception by a potential listener. For instance, any type of audio compression, noise background and/or reverberation, vocoding (to simulate cochlear implants), partial auditory loss, or any combination of these and other imaginable transformations. Intelligibility refers to the capacity of a listener to recognize a transformed signal. Extended information of this introduction can be found in manual_speechTester.pdf
