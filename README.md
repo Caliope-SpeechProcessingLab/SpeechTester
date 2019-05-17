@@ -1,3 +1,5 @@
+# Table of Content:
+
 - [SpeechTester](#speechtester)
 - [Using Speech Tester](#using-speech-tester)
   * [1. Download software](#1-download-software)
@@ -13,9 +15,6 @@
       - [h.  Create the folder structure for results files (confusion matrices)](#h--create-the-folder-structure-for-results-files--confusion-matrices-)
   * [4.    Run one simulation](#4----run-one-simulation)
   * [5.    Run multiple simulations](#5----run-multiple-simulations)
-
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
-
 
 # SpeechTester
 
