@@ -15,7 +15,7 @@
       - [h.  Create the folder structure for results files (confusion matrices)](#h--create-the-folder-structure-for-results-files--confusion-matrices-)
   * [4.    Run one simulation](#4----run-one-simulation)
   * [5.    Run multiple simulations](#5----run-multiple-simulations)
-- [Authors and grants]
+- [Authors and grants] (# Authors-and-grants)
   
 
 # SpeechTester
