@@ -202,4 +202,5 @@ The present set of scripts has been developed with the participation of:
 - Salvador Florido (Desiged the bulk of the system and wrote the majority of the code until march 2020)
 - Andrés Lozano (Programmer: april 2020 - may 2021)
 - Ignacio Moreno-Torres and Enrique Nava: Supervision
-Our work was supported by a gram from the Spanish Ministerio de Ciencia e Innovación to Ignacio Moreno-Torres and Enrique Nava (RTI2018-094846-B-I00) 
+
+THis work was supported by a gram from the Spanish Ministerio de Ciencia e Innovación to Ignacio Moreno-Torres and Enrique Nava (RTI2018-094846-B-I00) 
