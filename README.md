@@ -15,6 +15,8 @@
       - [h.  Create the folder structure for results files (confusion matrices)](#h--create-the-folder-structure-for-results-files--confusion-matrices-)
   * [4.    Run one simulation](#4----run-one-simulation)
   * [5.    Run multiple simulations](#5----run-multiple-simulations)
+- [Authors and grants]
+  
 
 # SpeechTester
 
@@ -193,3 +195,11 @@ Speech tester can help you automatize the process of running a large number of s
 
 If everything goes well your ```Resultados``` folder will have two files per simulation. One will contain the confusion matrix, the other will list the errors in that simulation.
 
+
+# Authors and grants
+
+The present set of scripts has been developed with the participation of:
+- Salvador Florido (Desiged the bulk of the system and wrote the majority of the code until march 2020)
+- Andrés Lozano (Programmer: april 2020 - may 2021)
+- Ignacio Moreno-Torres and Enrique Nava: Supervision
+Our work was supported by a gram from the Spanish Ministerio de Ciencia e Innovación to Ignacio Moreno-Torres and Enrique Nava (RTI2018-094846-B-I00) 
