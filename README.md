@@ -203,4 +203,4 @@ The present set of scripts has been developed with the participation of:
 - Andrés Lozano (Programmer: april 2020 - may 2021)
 - Ignacio Moreno-Torres and Enrique Nava: Supervision
 
-This work was supported by a grant from the Spanish Ministerio de Ciencia e Innovación to Ignacio Moreno-Torres and Enrique Nava (RTI2018-094846-B-I00) 
+This work was supported by a grant from the Spanish Ministerio de Ciencia e Innovación to Ignacio Moreno-Torres and Enrique Nava (RTI2018-094846-B-I00) and a grant from Junta de Andalucía (Spain) to to Ignacio Moreno-Torres and Enrique Nava (UMA18-FEDERJA-021)
